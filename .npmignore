@@ -1,0 +1,11 @@
+node_modules/
+.git/
+.github/
+*.log
+.DS_Store
+.env
+tsconfig.json
+credentials/**/*.ts
+nodes/**/*.ts
+!dist/**/*.js
+!dist/**/*.json
