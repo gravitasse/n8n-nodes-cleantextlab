@@ -453,15 +453,16 @@ export class CleanTextLab implements INodeType {
 				});
 			} catch (error) {
 				if (this.continueOnFail()) {
+					const errorMessage = error instanceof Error ? error.message : String(error);
 					returnData.push({
 						json: {
-							error: error.message,
+							error: errorMessage,
 						},
 						pairedItem: { item: i },
 					});
 					continue;
 				}
-				throw new NodeOperationError(this.getNode(), error);
+				throw new NodeOperationError(this.getNode(), error as Error);
 			}
 		}
 
