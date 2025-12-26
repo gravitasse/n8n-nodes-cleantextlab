@@ -1,0 +1,101 @@
+{
+  "name": "CleanTextLab Node Test",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "tool": "csv-json-converter",
+        "inputText": "name;age;city\nAlice;30;Paris\nBob;25;London",
+        "csvDelimiter": ";",
+        "csvHasHeaders": true
+      },
+      "id": "cleantextlab-csv",
+      "name": "CleanTextLab - CSV Semicolon",
+      "type": "n8n-nodes-cleantextlab.cleanTextLab",
+      "typeVersion": 1,
+      "position": [450, 200],
+      "credentials": {
+        "cleanTextLabApi": {
+          "id": "1",
+          "name": "CleanTextLab API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "tool": "hash-generator",
+        "inputText": "password123",
+        "hashAlgorithm": "SHA-512",
+        "hashFormat": "base64"
+      },
+      "id": "cleantextlab-hash",
+      "name": "CleanTextLab - Hash SHA-512",
+      "type": "n8n-nodes-cleantextlab.cleanTextLab",
+      "typeVersion": 1,
+      "position": [450, 300],
+      "credentials": {
+        "cleanTextLabApi": {
+          "id": "1",
+          "name": "CleanTextLab API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "tool": "base64-encode-decode",
+        "inputText": "Hello World",
+        "base64Direction": "encode"
+      },
+      "id": "cleantextlab-base64",
+      "name": "CleanTextLab - Base64 Encode",
+      "type": "n8n-nodes-cleantextlab.cleanTextLab",
+      "typeVersion": 1,
+      "position": [450, 400],
+      "credentials": {
+        "cleanTextLabApi": {
+          "id": "1",
+          "name": "CleanTextLab API"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "CleanTextLab - CSV Semicolon",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "CleanTextLab - Hash SHA-512",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "CleanTextLab - Base64 Encode",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-12-26T19:00:00.000Z",
+  "versionId": "1"
+}
