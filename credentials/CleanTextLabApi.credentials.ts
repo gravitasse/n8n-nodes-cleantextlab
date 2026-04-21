@@ -1,6 +1,4 @@
 import {
-	IAuthenticateGeneric,
-	ICredentialTestRequest,
 	ICredentialType,
 	INodeProperties,
 } from 'n8n-workflow';
@@ -8,7 +6,8 @@ import {
 export class CleanTextLabApi implements ICredentialType {
 	name = 'cleanTextLabApi';
 	displayName = 'CleanTextLab API';
-	documentationUrl = 'https://cleantextlab.com/docs/api';
+	documentationUrl = 'https://cleantextlab.com/docs/n8n';
+	
 	properties: INodeProperties[] = [
 		{
 			displayName: 'API Key',
@@ -19,20 +18,12 @@ export class CleanTextLabApi implements ICredentialType {
 			},
 			default: '',
 			required: true,
-			description: 'Your CleanTextLab Pro API key (get it from Settings → API Keys)',
-			placeholder: 'ctl_live_...',
-		},
-		{
-			displayName: 'API URL',
-			name: 'apiUrl',
-			type: 'string',
-			default: 'https://cleantextlab.com/api/v1',
-			description: 'CleanTextLab API base URL (change only for testing)',
+			description: 'The API key from your CleanTextLab Settings (requires Pro plan)',
 		},
 	];
 
-	authenticate: IAuthenticateGeneric = {
-		type: 'generic',
+	authenticate = {
+		type: 'generic' as const,
 		properties: {
 			headers: {
 				'x-api-key': '={{$credentials.apiKey}}',
@@ -40,18 +31,15 @@ export class CleanTextLabApi implements ICredentialType {
 		},
 	};
 
-	test: ICredentialTestRequest = {
+	test = {
 		request: {
-			baseURL: '={{$credentials.apiUrl}}',
+			baseURL: 'https://cleantextlab.com/api/v1',
 			url: '/run',
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
+			method: 'POST' as const,
 			body: {
 				input: 'test',
-				steps: ['trim-lines'],
-			},
+				steps: ['trim-lines']
+			}
 		},
 	};
 }

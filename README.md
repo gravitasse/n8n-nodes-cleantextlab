@@ -38,6 +38,8 @@ The CleanTextLab node supports 35+ text processing operations across three categ
 - Remove Line Breaks
 - Sort & Remove Duplicates
 - Remove Accents
+- Remove All Spaces
+- Rosetta Stone (Multi-Language Cleaner)
 
 ### Data Processing
 - **CSV to JSON Converter** (supports custom delimiters `,` `;` `tab` `|`)
