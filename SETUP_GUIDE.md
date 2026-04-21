@@ -155,7 +155,7 @@ npm publish
 # Name: n8n-nodes-cleantextlab
 
 cd /Users/tysonk/projects/n8n-nodes-cleantextlab
-git remote add origin https://github.com/cleantextlab/n8n-nodes-cleantextlab.git
+git remote add origin https://github.com/gravitasse/n8n-nodes-cleantextlab.git
 git branch -M main
 git push -u origin main
 ```
@@ -171,7 +171,7 @@ git push -u origin main
   "name": "n8n-nodes-cleantextlab",
   "description": "35+ privacy-focused text processing tools for n8n workflows",
   "npm": "n8n-nodes-cleantextlab",
-  "repository": "https://github.com/cleantextlab/n8n-nodes-cleantextlab",
+  "repository": "https://github.com/gravitasse/n8n-nodes-cleantextlab",
   "author": {
     "name": "CleanTextLab",
     "email": "support@cleantextlab.com"
@@ -341,7 +341,7 @@ Track these metrics post-launch:
 ## 📞 Support
 
 **Questions?**
-- GitHub Issues: https://github.com/cleantextlab/n8n-nodes-cleantextlab/issues
+- GitHub Issues: https://github.com/gravitasse/n8n-nodes-cleantextlab/issues
 - Email: support@cleantextlab.com
 - Docs: https://cleantextlab.com/docs/n8n
 

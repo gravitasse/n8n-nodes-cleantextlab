@@ -188,7 +188,7 @@ See the [full configuration documentation](https://cleantextlab.com/docs/n8n) fo
 
 ### Support
 
-- **Issues**: [GitHub Issues](https://github.com/cleantextlab/n8n-nodes-cleantextlab/issues)
+- **Issues**: [GitHub Issues](https://github.com/gravitasse/n8n-nodes-cleantextlab/issues)
 - **Email**: support@cleantextlab.com
 - **Documentation**: https://cleantextlab.com/docs/n8n
 
